@@ -7,7 +7,7 @@ import List from './List'
 import Table from './Table'
 import WholeData from './WholeData'
 
-const ProjectsData = ({ projects, page, setPage, setShowId, showId }) => {
+const ProjectsData = ({ projects = [], page, setPage, setShowId, showId }) => {
 
     const ActivePage = () => {
         switch (page) {

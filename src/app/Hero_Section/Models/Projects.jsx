@@ -5,7 +5,7 @@ import img from '../../../../public/5544.jpg'
 import Image from 'next/image';
 import { Info } from 'lucide-react';
 const imgs = [img, img, img, img, img, img]
-const Projects = ({ setRefresh, projects }) => {
+const Projects = ({ setRefresh, projects = [] }) => {
     console.log('projects', projects)
     return (
         <Box sx={{ mt: { xs: 15, md: 0 } }}>

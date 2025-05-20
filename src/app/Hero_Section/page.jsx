@@ -7,9 +7,8 @@ import HomeView from './Models/HomeView'
 import { Box } from '@mui/material'
 import Projects from './Models/Projects'
 import Footer from '../Components/Footer'
-import RecentProject from './Models/Recent'
-import { useGlobalContext } from '../Context/GlobalContext'
 import { AxiosInstance } from '../ClientSideGlobalErrorHandler/GlobalErrorHandler';
+import RecentProject from './Models/Recent';
 
 const Hero_Section = () => {
     const [resumeData, setResumeData] = useState([]);

@@ -1,7 +1,8 @@
 'use client';
 import axios from "axios";
 
-const baseURL = process.env.NEXT_PUBLIC_BASE_URL || 'https://future-fs-01-backend.onrender.com/';
+const baseURL = process.env.NEXT_PUBLIC_BASE_URL
+console.log(baseURL);
 
 const AxiosInstance = axios.create({
     baseURL,
