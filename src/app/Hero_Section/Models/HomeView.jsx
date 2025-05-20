@@ -6,8 +6,8 @@ import './hone.css'
 // #3f3f3f
 const HomeView = () => {
     return (
-        <Container sx={{ mt: { xs: 30, md: 0 } }}>
-            <Grid container spacing={4}>
+        <Container>
+            <Grid container spacing={4} sx={{ mt: { xs: 12, sm: 42, md: 0 } }}>
                 <Grid size={{ md: 6, xs: 12 }} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
                     <Typography sx={{ color: '#ffffff', fontWeight: 800, fontSize: '2.4em' }}>
                         I Build Fast, Scalable, and Beautiful Web Applications.
@@ -17,16 +17,16 @@ const HomeView = () => {
                     </Typography>
                 </Grid>
                 <Grid size={{ md: 6, xs: 12 }} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <CardMedia
+                    {/* <CardMedia
                         component={'img'}
-                        image='about_System.jpg'
+                        image='1122.png'
                         alt='Side Image'
                         sx={{ objectFit: 'cover', borderRadius: 4, mixBlendMode: 'luminosity' }}
-                    />
+                    /> */}
 
                 </Grid>
             </Grid>
-        </Container>
+        </Container >
     )
 }
 
