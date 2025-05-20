@@ -1,0 +1,5 @@
+.blendImage {
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    backdrop-filter: blur(10px);
+}

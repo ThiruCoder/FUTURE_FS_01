@@ -1,0 +1,68 @@
+'use client';
+import axios from "axios";
+
+const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+
+const AxiosInstance = axios.create({
+    baseURL,
+    timeout: 10000,
+});
+
+AxiosInstance.interceptors.request.use(
+    (config) => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    (error) => Promise.reject(error)
+);
+
+AxiosInstance.interceptors.response.use(
+    (response) => response.data,
+    (error) => {
+        if (process.env.NODE_ENV !== 'production') {
+            console.log(`[DEV] Axios error: `, {
+                config: error.config || 'No config',
+                response: error.response || 'No response',
+                message: error.message || 'No message',
+                stack: error.stack || 'No stack trace'
+            });
+        }
+
+        const errorResponse = {
+            status: error.response?.status || 500,
+            message: '',
+            data: error.response?.data || error.message
+        };
+
+        if (error.code === 'ECONNABORTED') {
+            errorResponse.message = 'Request timed out. Please try again later.';
+        }
+
+        switch (errorResponse.status) {
+            case 400:
+                errorResponse.message = 'Bad request';
+                break;
+            case 401:
+                errorResponse.message = 'Unauthorized - Please login again';
+                break;
+            case 403:
+                errorResponse.message = 'Forbidden - You lack necessary permissions';
+                break;
+            case 404:
+                errorResponse.message = 'Resource not found';
+                break;
+            case 500:
+                errorResponse.message = 'Server error - Please try again later';
+                break;
+            default:
+                errorResponse.message = error.message || 'An unexpected error occurred';
+        }
+
+        return Promise.reject(errorResponse);
+    }
+);
+
+export { AxiosInstance };
