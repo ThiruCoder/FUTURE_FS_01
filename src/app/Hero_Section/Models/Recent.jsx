@@ -6,7 +6,6 @@ import Link from 'next/link'
 import { Link2 } from 'lucide-react'
 
 const RecentProject = ({ setRefresh, projects }) => {
-    console.log(projects);
     const matches = useMediaQuery('(min-width:600px)');
     return (
         <Box sx={{ bgcolor: '#F5F5DC', color: 'black', mt: 4, mb: 8, pb: 6 }}>

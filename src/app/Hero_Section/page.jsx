@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../Components/Header'
 import Image from 'next/image'
 import img1 from '../../../public/5544.jpg'
@@ -12,9 +12,9 @@ import { useGlobalContext } from '../Context/GlobalContext'
 import { AxiosInstance } from '../ClientSideGlobalErrorHandler/GlobalErrorHandler';
 
 const Hero_Section = () => {
-    const {
-        refresh,
-        setRefresh, projects, setProjects } = useGlobalContext()
+    const [resumeData, setResumeData] = useState([]);
+    const [projects, setProjects] = useState([]);
+    const [refresh, setRefresh] = useState(false);
 
     const GetProjectData = async () => {
         try {
