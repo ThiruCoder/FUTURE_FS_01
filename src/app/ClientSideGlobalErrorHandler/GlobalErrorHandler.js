@@ -2,10 +2,13 @@
 import axios from "axios";
 
 const baseURL = process.env.NEXT_PUBLIC_BASE_URL
-console.log(baseURL);
+// console.log(baseURL);
 
 const AxiosInstance = axios.create({
-    baseURL,
+    baseURL: [
+        'https://future-fs-01-backend.onrender.com/',
+        'http://localhost:5000'
+    ],
     timeout: 10000,
 });
 
